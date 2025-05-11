@@ -10,14 +10,17 @@ const removeItem = (index) => {
 
 const displayTodoList = (todoList) => {
     output.innerHTML  = '';
-    todoList.forEach((value, index) => {
+    todoList.forEach((item, index) => {
         const container = document.createElement('div');
         container.className = 'd-flex gap-3';
 
         const li = document.createElement('li');
-        li.textContent = value;
+        li.textContent = item.text;
+        if(item.done) li.classList.add('clicked');
         li.addEventListener('click', () => {
-            li.classList.toggle('clicked');
+            item.done = !item.done;
+            displayTodoList(todoList);
+            //li.classList.toggle('clicked');
         })
 
         const button = document.createElement('button');
@@ -36,7 +39,7 @@ const displayTodoList = (todoList) => {
 
 
 const AddItemToList = (value, todoList) => {
-    todoList.push(value);
+    todoList.push({text:value, done: false});
     displayTodoList(todoList);
 }
 

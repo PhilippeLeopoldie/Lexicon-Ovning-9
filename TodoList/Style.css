@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    padding-top: 2rem;
+    background-color: #aa00ff;
+}
+
+li.clicked {
+    text-decoration: line-through;
+    border-radius: 2rem;
+    color: #11ff11;
+}
+
+button , input {
+    border-radius: 5rem;
+    padding: 0 1rem;
+}
+
+ol {
+    padding-left: 0;
+}
+
+li {
+    cursor: pointer;
+    color: whitesmoke;
+    padding: 0 2rem;
+}
+
+input {
+    background-color: #666666;
+    color: whitesmoke;
+}
+
+input::placeholder {
+    color:whitesmoke;
+}

@@ -1,7 +1,12 @@
 const output = document.getElementById('output');
 const todoListForm = document.getElementById('todoListForm');
-const todoList = [];
+const storedList = sessionStorage.getItem('todoList');
+const todoList = storedList ? JSON.parse(storedList) : [];
 
+
+const saveTodoList = () => {
+    sessionStorage.setItem('todoList', JSON.stringify(todoList));
+};
 
 const removeItem = (index) => {
     todoList.splice(index,1);
@@ -34,6 +39,7 @@ const displayTodoList = (todoList) => {
         container.appendChild(button);
         output.appendChild(container);
     });
+    saveTodoList();
 }
 
 
